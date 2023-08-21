@@ -20,7 +20,6 @@ class _MostlyPlayedState extends State<MostlyPlayed> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     mostlyBox = Hive.box('mostplayed_db');
   }
@@ -29,7 +28,7 @@ class _MostlyPlayedState extends State<MostlyPlayed> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(247, 14, 14, 13),
+        backgroundColor: const Color.fromARGB(247, 14, 14, 13),
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -67,16 +66,16 @@ class _MostlyPlayedState extends State<MostlyPlayed> {
                       Widget? child) {
                     return ListView.builder(
                         shrinkWrap: true,
-                        physics: BouncingScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         itemCount:
                             mostSongs.length < 10 ? mostSongs.length : 10,
                         itemBuilder: (context, index) {
-                          var Mostsong = mostSongs[index];
-                          bool isfavsong = isFavsong(Mostsong);
+                          var mostsong = mostSongs[index];
+                          bool isfavsong = isFavsong(mostsong);
                           return SongMostlyPlayed(
                               index: index,
                               isFav: isfavsong,
-                              mostSong: Mostsong,
+                              mostSong: mostsong,
                               mostSongs: mostSongs);
                         });
                   },
@@ -158,11 +157,11 @@ class _SongMostlyPlayedState extends State<SongMostlyPlayed> {
               });
             },
             icon: !widget.isFav
-                ? Icon(
+                ? const Icon(
                     Icons.favorite_border_rounded,
                     color: Colors.white,
                   )
-                : Icon(
+                : const Icon(
                     Icons.favorite,
                     color: Colors.red,
                   ),

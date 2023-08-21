@@ -2,17 +2,17 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:musicplayer_app/audio_functions/assetsauidoplayer.dart';
 
-class songsDurations extends StatefulWidget {
-  const songsDurations({super.key});
+class SongDuration extends StatefulWidget {
+  const SongDuration({super.key});
 
   @override
-  State<songsDurations> createState() => _songsDurationsState();
+  State<SongDuration> createState() => _SongsDurationsState();
 }
 
-class _songsDurationsState extends State<songsDurations> {
-  Duration currentDuration = Duration(seconds: 0);
-  Duration duration = Duration(seconds: 0);
-  Duration songDuration = Duration();
+class _SongsDurationsState extends State<SongDuration> {
+  Duration currentDuration = const Duration(seconds: 0);
+  Duration duration = const Duration(seconds: 0);
+  Duration songDuration = const Duration();
   String mm = '';
   String ss = '';
 

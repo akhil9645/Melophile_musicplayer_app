@@ -52,7 +52,7 @@ class _PopupMenuState extends State<PopupMenu> {
                                   Icons.edit_rounded,
                                 ),
                                 prefixIconColor: Colors.black),
-                            cursorColor: Color.fromARGB(255, 13, 13, 13),
+                            cursorColor: const Color.fromARGB(255, 13, 13, 13),
                             controller: _playlistcontroller,
                           ),
                           onConfirmBtnTap: () {

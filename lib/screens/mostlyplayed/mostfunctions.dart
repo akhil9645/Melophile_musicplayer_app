@@ -5,7 +5,7 @@ import 'package:musicplayer_app/db/models/all_songs_model.dart';
 List<AllsongsModel> mostPlayedList = [];
 
 Future<void> mostAdd(int songID) async {
-  for (var elements in AllsongsNotifier.value) {
+  for (var elements in allsongsNotifier.value) {
     if (elements.songId == songID) {
       mostPlayedList.insert(0, elements);
       addMostPlayed(mostPlayedList[0]);

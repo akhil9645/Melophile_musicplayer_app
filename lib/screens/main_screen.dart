@@ -30,12 +30,17 @@ class _MainScreenState extends State<MainScreen> {
     getAllSongs();
     getMostPlayed();
     getRecentlyPlayed();
-    // TODO: implement initState
+
     super.initState();
   }
 
   int currentScreen = 0;
-  var screens = [HomeScreen(), FavouritesList(), SearchScreen(), Library()];
+  var screens = const [
+    HomeScreen(),
+    FavouritesList(),
+    SearchScreen(),
+    Library()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +53,7 @@ class _MainScreenState extends State<MainScreen> {
           ValueListenableBuilder(
               valueListenable: isSongPlayingNotifier,
               builder: (BuildContext context, isPlay, Widget? child) {
-                return isPlay ? MiniPlayer() : SizedBox();
+                return isPlay ? const MiniPlayer() : const SizedBox();
               }),
           Container(
             color: const Color.fromARGB(247, 10, 11, 20),
@@ -135,11 +140,11 @@ class _MiniPlayerState extends State<MiniPlayer> {
           return GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (cntx) {
-                  return NowPlaying();
+                  return const NowPlaying();
                 }));
               },
               child: Container(
-                color: Color.fromARGB(247, 39, 59, 74),
+                color: const Color.fromARGB(247, 39, 59, 74),
                 width: double.infinity,
                 height: 65,
                 child: ClipRRect(
@@ -152,7 +157,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
                         child: QueryArtworkWidget(
                             id: int.parse(playing.audio.audio.metas.id!),
                             type: ArtworkType.AUDIO,
-                            nullArtworkWidget: CircleAvatar(
+                            nullArtworkWidget: const CircleAvatar(
                               backgroundImage: AssetImage(
                                   'assets/fonts/images/songicon.jpg'),
                               radius: 22,
@@ -165,7 +170,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
                           child: Text(
                             playing.audio.audio.metas.title!,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontFamily: 'poppins',
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600),
@@ -177,7 +182,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
                       playing.audio.audio.metas.artist!,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontFamily: 'poppins', color: Colors.white70),
                     ),
                     trailing: Wrap(
@@ -188,7 +193,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
                             audioPlayer.previous();
                           },
                           color: Colors.white,
-                          icon: Icon(Icons.skip_previous_rounded),
+                          icon: const Icon(Icons.skip_previous_rounded),
                           iconSize: 30,
                         ),
                         PlayerBuilder.isPlaying(
@@ -205,8 +210,8 @@ class _MiniPlayerState extends State<MiniPlayer> {
                                   color: Colors.white,
                                   iconSize: 35,
                                   icon: isPlaying
-                                      ? Icon(Icons.pause)
-                                      : Icon(Icons.play_arrow));
+                                      ? const Icon(Icons.pause)
+                                      : const Icon(Icons.play_arrow));
                             }),
                         IconButton(
                             onPressed: () {
@@ -214,7 +219,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
                             },
                             color: Colors.white,
                             iconSize: 30,
-                            icon: Icon(Icons.skip_next_rounded)),
+                            icon: const Icon(Icons.skip_next_rounded)),
                         IconButton(
                             onPressed: () {
                               audioPlayer.stop();
@@ -227,7 +232,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
                             },
                             color: Colors.white,
                             iconSize: 25,
-                            icon: Icon(Icons.stop)),
+                            icon: const Icon(Icons.stop)),
                       ],
                     ),
                   ),

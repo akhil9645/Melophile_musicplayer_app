@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   int index = 0;
-  var screens = [MostlyPlayed(), RecentlyPlayed()];
+  var screens = const [MostlyPlayed(), RecentlyPlayed()];
   @override
   Widget build(BuildContext context) {
     final double screenheight = MediaQuery.of(context).size.height;
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Padding(
@@ -114,10 +114,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(
                     height: 5,
                   ),
-                  Flexible(
+                  const Flexible(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: const [
+                      children: [
                         Text(
                           'Mostly Played',
                           style: TextStyle(
@@ -153,18 +153,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Flexible(
                     child: ValueListenableBuilder(
-                      valueListenable: AllsongsNotifier,
+                      valueListenable: allsongsNotifier,
                       builder: (context, List<AllsongsModel> allSongs, child) {
-                        return allSongs.length != 0
+                        return allSongs.isNotEmpty
                             ? ListView.builder(
                                 shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemCount: allSongs.length,
                                 itemBuilder: (context, index) {
                                   var song = allSongs[index];
                                   bool isfav = isFavsong(song);
                                   return AllSongsListWidget(
-                                    Allsongs: allSongs,
+                                    allsongs: allSongs,
                                     index: index,
                                     song: song,
                                     isfavsong: isfav,
@@ -198,12 +198,12 @@ class AllSongsListWidget extends StatefulWidget {
   AllSongsListWidget(
       {super.key,
       required this.song,
-      required this.Allsongs,
+      required this.allsongs,
       required this.isfavsong,
       required this.index});
   AllsongsModel song;
   int index;
-  List<AllsongsModel> Allsongs;
+  List<AllsongsModel> allsongs;
   bool isfavsong;
 
   @override
@@ -215,9 +215,9 @@ class _AllSongsListWidgetState extends State<AllSongsListWidget> {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        changeFormatesong(widget.index, widget.Allsongs);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NowPlaying()));
+        changeFormatesong(widget.index, widget.allsongs);
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const NowPlaying()));
       },
       leading: QueryArtworkWidget(
         id: widget.song.songId!,
@@ -260,11 +260,11 @@ class _AllSongsListWidgetState extends State<AllSongsListWidget> {
               });
             },
             icon: !widget.isfavsong
-                ? Icon(
+                ? const Icon(
                     Icons.favorite_border_rounded,
                     color: Colors.white,
                   )
-                : Icon(
+                : const Icon(
                     Icons.favorite,
                     color: Colors.red,
                   ),

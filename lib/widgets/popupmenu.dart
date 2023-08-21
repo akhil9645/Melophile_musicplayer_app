@@ -44,7 +44,7 @@ class PopUpMenuFunction extends StatelessWidget {
             value: 'Add to Playlist',
             child: ListTile(
               leading: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.add,
                   color: Colors.white,
                 ),
@@ -53,7 +53,7 @@ class PopUpMenuFunction extends StatelessWidget {
                   bottomSheet(context, song);
                 },
               ),
-              title: Text(
+              title: const Text(
                 'Add to Playlist',
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -84,13 +84,13 @@ Future bottomSheet(BuildContext cntx, AllsongsModel song) {
             color: Colors.white,
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Container(
+                SizedBox(
                     height: mediaQuary.size.height * 0.06,
                     width: mediaQuary.size.width * 0.5,
-                    child: Text(
+                    child: const Text(
                       'Existing Playlist',
                       style: TextStyle(
                           fontFamily: 'Poppins',
@@ -110,14 +110,14 @@ Future bottomSheet(BuildContext cntx, AllsongsModel song) {
                             return Card(
                               color: Colors.white,
                               child: Padding(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       playlist.name.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontFamily: 'poppins',
                                           fontWeight: FontWeight.w600,
                                           fontSize: 20),
@@ -134,11 +134,11 @@ Future bottomSheet(BuildContext cntx, AllsongsModel song) {
                                           }
                                         },
                                         icon: !isInPlaylist
-                                            ? Icon(
+                                            ? const Icon(
                                                 Icons.add,
                                                 color: Colors.black,
                                               )
-                                            : Icon(
+                                            : const Icon(
                                                 Icons.check,
                                                 color: Colors.blue,
                                               ))

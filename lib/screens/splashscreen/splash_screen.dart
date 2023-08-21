@@ -38,10 +38,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Container(
         color: const Color.fromARGB(247, 10, 11, 20),
-        child: Center(
+        child: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Icon(
                 Icons.music_note_rounded,
                 size: 53,

@@ -1,6 +1,5 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:musicplayer_app/audio_functions/assetsauidoplayer.dart';
 
 class SongSlider extends StatefulWidget {
@@ -11,9 +10,9 @@ class SongSlider extends StatefulWidget {
 }
 
 class _SongSliderState extends State<SongSlider> {
-  Duration currentDuration = Duration(seconds: 0);
-  Duration duration = Duration(seconds: 0);
-  Duration songDuration = Duration();
+  Duration currentDuration = const Duration(seconds: 0);
+  Duration duration = const Duration(seconds: 0);
+  Duration songDuration = const Duration();
 
   double sliderValue = 0.0;
 
@@ -21,7 +20,6 @@ class _SongSliderState extends State<SongSlider> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     audioPlayer.current.listen((Playing) {
       if (Playing != null) {

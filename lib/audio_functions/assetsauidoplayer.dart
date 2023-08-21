@@ -39,7 +39,7 @@ changeFormatesong(int index, List<AllsongsModel>? currentSongs) {
 
 AllsongsModel changeToSongModel(int songId) {
   late AllsongsModel data;
-  for (var element in AllsongsNotifier.value) {
+  for (var element in allsongsNotifier.value) {
     if (element.songId == songId) {
       data = element;
       break;

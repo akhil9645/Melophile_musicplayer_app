@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:musicplayer_app/audio_functions/assetsauidoplayer.dart';
 import 'package:musicplayer_app/db/models/all_songs_model.dart';
 
 ValueNotifier<List<AllsongsModel>> favsongNotifier = ValueNotifier([]);
@@ -19,8 +18,8 @@ Future<void> addToFav(AllsongsModel value, BuildContext context) async {
     getAllFav();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        duration: Duration(seconds: 1),
-        content: Text(
+        duration: const Duration(seconds: 1),
+        content: const Text(
           'Added to Favourites',
           style: TextStyle(
             fontFamily: 'Poppins',
@@ -58,8 +57,8 @@ Future<void> DeleteFav(AllsongsModel song, BuildContext context) async {
   }
   getAllFav();
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    duration: Duration(seconds: 1),
-    content: Text(
+    duration: const Duration(seconds: 1),
+    content: const Text(
       'Removed From Favourites',
       style: TextStyle(
         fontFamily: 'Poppins',

@@ -29,8 +29,6 @@ class _PlaylistSongsState extends State<PlaylistSongs> {
 
   @override
   Widget build(BuildContext context) {
-    var screenheight = MediaQuery.of(context).size.height;
-    var screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color.fromARGB(247, 20, 21, 20),
       appBar: AppBar(
@@ -165,11 +163,11 @@ class _SongsInPlaylistState extends State<SongsInPlaylist> {
               });
             },
             icon: !widget.isFavsong
-                ? Icon(
+                ? const Icon(
                     Icons.favorite_border_rounded,
                     color: Colors.white,
                   )
-                : Icon(
+                : const Icon(
                     Icons.favorite,
                     color: Colors.red,
                   ),
@@ -179,7 +177,7 @@ class _SongsInPlaylistState extends State<SongsInPlaylist> {
             onPressed: () {
               removeSong(widget.song, widget.item, widget.playlistindex);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.delete,
               color: Colors.red,
             ),

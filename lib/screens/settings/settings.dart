@@ -55,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     context: context,
                     applicationName: "Melophile",
                     applicationVersion: "1.0.1",
-                    applicationIcon: CircleAvatar(
+                    applicationIcon: const CircleAvatar(
                       foregroundImage:
                           AssetImage('assets/fonts/images/songicon.jpg'),
                     ),
@@ -86,7 +86,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 showDialog(
                     context: context,
                     builder: (context) {
-                      return TermsAndConditions(
+                      return const TermsAndConditions(
                           mdFileName: 'terms_and_conditions.md');
                     });
               },
@@ -108,7 +108,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 showDialog(
                     context: context,
                     builder: (context) {
-                      return PrivacyPolicy(mdFileName: 'privacy_policy.md');
+                      return const PrivacyPolicy(
+                          mdFileName: 'privacy_policy.md');
                     });
               },
             ),

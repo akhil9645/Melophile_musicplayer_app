@@ -27,7 +27,7 @@ class _NowPlayingButtonsState extends State<NowPlayingButtons> {
                     }
                   });
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.shuffle_rounded,
                   color: Colors.green,
                 ),

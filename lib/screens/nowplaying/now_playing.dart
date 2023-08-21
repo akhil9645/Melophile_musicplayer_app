@@ -1,7 +1,6 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:musicplayer_app/audio_functions/assetsauidoplayer.dart';
-import 'package:musicplayer_app/db/db_functions/allsongsdb.dart';
 import 'package:musicplayer_app/db/db_functions/favsongdb.dart';
 import 'package:musicplayer_app/db/models/all_songs_model.dart';
 import 'package:musicplayer_app/screens/mostlyplayed/mostfunctions.dart';
@@ -80,7 +79,7 @@ class _NowPlayingState extends State<NowPlaying> {
                 const SizedBox(
                   height: 65,
                 ),
-                Container(
+                SizedBox(
                   width: screenwidth - 40,
                   height: screenheight * 0.1,
                   child: Column(
@@ -125,7 +124,7 @@ class _NowPlayingState extends State<NowPlaying> {
                                     )),
                         ],
                       ),
-                      Container(
+                      SizedBox(
                         width: screenwidth - 60,
                         child: Text(
                           playing.audio.audio.metas.artist ?? 'Artist Name',
@@ -142,8 +141,8 @@ class _NowPlayingState extends State<NowPlaying> {
                     ],
                   ),
                 ),
-                SongSlider(),
-                songsDurations(),
+                const SongSlider(),
+                const SongDuration(),
                 const SizedBox(
                   height: 25,
                 ),

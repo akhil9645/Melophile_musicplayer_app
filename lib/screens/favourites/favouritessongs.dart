@@ -1,4 +1,3 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:musicplayer_app/audio_functions/assetsauidoplayer.dart';
 import 'package:musicplayer_app/db/db_functions/favsongdb.dart';
@@ -18,7 +17,7 @@ class _FavouritesListState extends State<FavouritesList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(228, 0, 0, 0),
+      backgroundColor: const Color.fromARGB(228, 0, 0, 0),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -41,8 +40,8 @@ class _FavouritesListState extends State<FavouritesList> {
                   valueListenable: favsongNotifier,
                   builder: (BuildContext cntx, List<AllsongsModel> favssongs,
                       Widget? child) {
-                    return favssongs.length == 0
-                        ? Center(
+                    return favssongs.isEmpty
+                        ? const Center(
                             child: Text(
                               'No Liked Songs',
                               style: TextStyle(
@@ -54,7 +53,7 @@ class _FavouritesListState extends State<FavouritesList> {
                           )
                         : ListView.builder(
                             shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             itemCount: favssongs.length,
                             itemBuilder: (context, index) {
                               var song = favssongs[index];
@@ -93,8 +92,8 @@ class _FavSongListState extends State<FavSongList> {
       onTap: () {
         changeFormatesong(widget.index, widget.favsong);
 
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NowPlaying()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const NowPlaying()));
       },
       leading: QueryArtworkWidget(
         id: widget.song.songId!,

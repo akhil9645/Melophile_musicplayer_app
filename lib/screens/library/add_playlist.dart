@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:musicplayer_app/db/db_functions/playlist_db.dart';
 import 'package:musicplayer_app/screens/library/playlist_functions.dart';
 
 class CreatePlaylist extends StatefulWidget {
@@ -10,14 +9,13 @@ class CreatePlaylist extends StatefulWidget {
 }
 
 class _CreatePlaylistState extends State<CreatePlaylist> {
-  final _playlist_controller = TextEditingController();
+  final _playlistcontroller = TextEditingController();
   final playlistKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     String fontfamily = 'Poppins';
     final double ScreenHeight = MediaQuery.of(context).size.height;
-    final double ScreenWidth = MediaQuery.of(context).size.width;
 
     return SafeArea(
       child: Scaffold(
@@ -71,11 +69,12 @@ class _CreatePlaylistState extends State<CreatePlaylist> {
                           color: Colors.white,
                           fontFamily: fontfamily,
                           fontSize: 18),
-                      controller: _playlist_controller,
+                      controller: _playlistcontroller,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please Enter your Playlist name';
                         }
+                        return null;
                       },
                       decoration: InputDecoration(
                         filled: true,
@@ -101,7 +100,7 @@ class _CreatePlaylistState extends State<CreatePlaylist> {
                       onPressed: () {
                         Navigator.pop(context);
                         if (playlistKey.currentState?.validate() ?? true) {
-                          changeToPlaylist(_playlist_controller.text, context);
+                          changeToPlaylist(_playlistcontroller.text, context);
                         } else {
                           print('Error');
                         }

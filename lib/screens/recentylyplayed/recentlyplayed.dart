@@ -3,8 +3,7 @@ import 'package:musicplayer_app/audio_functions/assetsauidoplayer.dart';
 import 'package:musicplayer_app/db/db_functions/favsongdb.dart';
 import 'package:musicplayer_app/db/db_functions/recentlyplayed.dart';
 import 'package:musicplayer_app/db/models/all_songs_model.dart';
-import 'package:musicplayer_app/screens/library/add_playlist.dart';
-import 'package:musicplayer_app/db/models/songlist.dart';
+
 import 'package:musicplayer_app/screens/nowplaying/now_playing.dart';
 import 'package:musicplayer_app/widgets/popupmenu.dart';
 import 'package:on_audio_query/on_audio_query.dart';
@@ -21,7 +20,7 @@ class _RecentlyPlayedState extends State<RecentlyPlayed> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(149, 17, 17, 16),
+        backgroundColor: const Color.fromARGB(149, 17, 17, 16),
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -59,7 +58,7 @@ class _RecentlyPlayedState extends State<RecentlyPlayed> {
                       Widget? child) {
                     return ListView.builder(
                         shrinkWrap: true,
-                        physics: BouncingScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         itemCount: recentSongs.length,
                         itemBuilder: (context, index) {
                           var song = recentSongs[index];
@@ -67,7 +66,7 @@ class _RecentlyPlayedState extends State<RecentlyPlayed> {
                           return SongRecentlyPlayed(
                               index: index,
                               isFav: isfavsong,
-                              Song: song,
+                              song: song,
                               recentSongs: recentSongs);
                         });
                   },
@@ -86,10 +85,10 @@ class SongRecentlyPlayed extends StatefulWidget {
     super.key,
     required this.index,
     required this.isFav,
-    required this.Song,
+    required this.song,
     required this.recentSongs,
   });
-  AllsongsModel Song;
+  AllsongsModel song;
   int index;
   List<AllsongsModel> recentSongs;
   bool isFav;
@@ -105,11 +104,11 @@ class _SongRecentlyPlayedState extends State<SongRecentlyPlayed> {
       onTap: () {
         changeFormatesong(widget.index, widget.recentSongs);
 
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NowPlaying()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const NowPlaying()));
       },
       leading: QueryArtworkWidget(
-        id: widget.Song.songId!,
+        id: widget.song.songId!,
         type: ArtworkType.AUDIO,
         nullArtworkWidget: const CircleAvatar(
           backgroundImage: AssetImage('assets/fonts/images/songicon.jpg'),
@@ -117,7 +116,7 @@ class _SongRecentlyPlayedState extends State<SongRecentlyPlayed> {
         ),
       ),
       title: Text(
-        widget.Song.name ?? 'song name',
+        widget.song.name ?? 'song name',
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(
             color: Colors.white,
@@ -126,7 +125,7 @@ class _SongRecentlyPlayedState extends State<SongRecentlyPlayed> {
             fontWeight: FontWeight.w600),
       ),
       subtitle: Text(
-        widget.Song.artist ?? 'Artist Name',
+        widget.song.artist ?? 'Artist Name',
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(
           color: Colors.white54,
@@ -140,27 +139,27 @@ class _SongRecentlyPlayedState extends State<SongRecentlyPlayed> {
             onPressed: () {
               setState(() {
                 if (!widget.isFav) {
-                  addToFav(widget.Song, context);
+                  addToFav(widget.song, context);
                   widget.isFav = !widget.isFav;
                 } else {
-                  DeleteFav(widget.Song, context);
+                  DeleteFav(widget.song, context);
                   widget.isFav = !widget.isFav;
                 }
               });
             },
             icon: !widget.isFav
-                ? Icon(
+                ? const Icon(
                     Icons.favorite_border_rounded,
                     color: Colors.white,
                   )
-                : Icon(
+                : const Icon(
                     Icons.favorite,
                     color: Colors.red,
                   ),
             iconSize: 28,
           ),
           PopUpMenuFunction(
-            song: widget.Song,
+            song: widget.song,
           )
         ],
       ),

@@ -18,7 +18,8 @@ class TermsAndConditions extends StatelessWidget {
         children: [
           Expanded(
             child: FutureBuilder(
-              future: Future.delayed(Duration(milliseconds: 150)).then((value) {
+              future: Future.delayed(const Duration(milliseconds: 150))
+                  .then((value) {
                 return rootBundle.loadString(
                     'assets/fonts/privcy_terms_conditions/$mdFileName');
               }),
@@ -26,7 +27,7 @@ class TermsAndConditions extends StatelessWidget {
                 if (snapshot.hasData) {
                   return Markdown(data: snapshot.data!);
                 }
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               },

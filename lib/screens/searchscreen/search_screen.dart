@@ -77,7 +77,7 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               Expanded(
                 child: ValueListenableBuilder(
-                  valueListenable: AllsongsNotifier,
+                  valueListenable: allsongsNotifier,
                   builder: (context, List<AllsongsModel> allSongs, child) {
                     return allsongsDisplay.isNotEmpty
                         ? ListView.builder(
@@ -88,7 +88,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               var song = allsongsDisplay[index];
                               bool isfavsong = isFavsong(song);
                               return AllSongsListWidget(
-                                Allsongs: allsongsDisplay,
+                                allsongs: allsongsDisplay,
                                 index: index,
                                 song: song,
                                 isfavsong: isfavsong,
