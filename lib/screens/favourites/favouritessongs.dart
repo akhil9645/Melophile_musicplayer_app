@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:musicplayer_app/audio_functions/assetsauidoplayer.dart';
 import 'package:musicplayer_app/db/db_functions/favsongdb.dart';
 import 'package:musicplayer_app/db/models/all_songs_model.dart';
+
 import 'package:musicplayer_app/screens/nowplaying/now_playing.dart';
 import 'package:musicplayer_app/widgets/popupmenu.dart';
 import 'package:on_audio_query/on_audio_query.dart';

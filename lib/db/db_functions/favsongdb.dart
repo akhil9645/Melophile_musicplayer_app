@@ -36,6 +36,7 @@ Future<void> addToFav(AllsongsModel value, BuildContext context) async {
 
 Future<void> getAllFav() async {
   final favSongDb = await Hive.openBox<AllsongsModel>('favsongs');
+
   favsongNotifier.value.clear();
   favsongNotifier.value.addAll(favSongDb.values);
   favsongNotifier.notifyListeners();

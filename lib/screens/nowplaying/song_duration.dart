@@ -6,10 +6,10 @@ class SongDuration extends StatefulWidget {
   const SongDuration({super.key});
 
   @override
-  State<SongDuration> createState() => _SongsDurationsState();
+  State<SongDuration> createState() => _SongsDurationState();
 }
 
-class _SongsDurationsState extends State<SongDuration> {
+class _SongsDurationState extends State<SongDuration> {
   Duration currentDuration = const Duration(seconds: 0);
   Duration duration = const Duration(seconds: 0);
   Duration songDuration = const Duration();
